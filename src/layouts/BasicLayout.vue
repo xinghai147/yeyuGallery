@@ -15,6 +15,13 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
 </script>
 
 <style scoped>
+#basiclayout .header {
+  background: #fff;
+  color: unset;
+  margin-bottom: 16px;
+  padding-inline: 20px;
+}
+
 #basiclayout .footer {
   background: #efefef;
   padding: 16px;
