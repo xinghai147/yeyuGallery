@@ -31,7 +31,7 @@
           <div v-else><a-tag color="blue">普通用户</a-tag></div>
         </template>
         <template v-if="column.dataIndex === 'createTime'">
-          {{ dayjs(record.createdTime).format('YYYY-MM-DD HH:mm:ss') }}
+          {{ dayjs(record.createTime).format('YYYY-MM-DD HH:mm:ss') }}
         </template>
 
         <template v-else-if="column.key === 'action'">
@@ -43,7 +43,6 @@
 </template>
 <script lang="ts" setup>
 import { deleteUserUsingPost, listUserVoByPageUsingPost } from '@/api/userController'
-import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue'
 import { message } from 'ant-design-vue'
 import { computed, onMounted, reactive, ref } from 'vue'
 import dayjs from 'dayjs'
@@ -77,14 +76,14 @@ const columns = [
     title: '创建时间',
     dataIndex: 'createTime',
   },
-
   {
     title: '操作',
     key: 'action',
   },
 ]
+
 // 数据
-const dataList = ref([])
+const dataList = ref<API.UserVO[]>([])
 const total = ref(0)
 
 // 搜索条件
