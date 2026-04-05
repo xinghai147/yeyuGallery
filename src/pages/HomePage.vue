@@ -3,12 +3,12 @@
     <!-- 搜索框 -->
     <div class="search-bar">
       <a-input-search
-          placeholder="从图片中搜索"
-          v-model:value="searchParams.searchText"
-          enter-button="搜索"
-          size="large"
-          @search="doSearch"
-          allow-clear
+        placeholder="从图片中搜索"
+        v-model:value="searchParams.searchText"
+        enter-button="搜索"
+        size="large"
+        @search="doSearch"
+        allow-clear
       />
     </div>
     <!-- 分类 + 标签 -->
@@ -20,10 +20,10 @@
       <span style="margin-right: 8px">标签：</span>
       <a-space :size="[0, 8]" wrap>
         <a-checkable-tag
-            v-for="(tag, index) in tagList"
-            :key="tag"
-            v-model:checked="selectedTagList[index]"
-            @change="doSearch"
+          v-for="(tag, index) in tagList"
+          :key="tag"
+          v-model:checked="selectedTagList[index]"
+          @change="doSearch"
         >
           {{ tag }}
         </a-checkable-tag>
@@ -32,10 +32,10 @@
 
     <!-- 图片列表 -->
     <a-list
-        :grid="{ gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }"
-        :data-source="dataList"
-        :pagination="pagination"
-        :loading="loading"
+      :grid="{ gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }"
+      :data-source="dataList"
+      :pagination="pagination"
+      :loading="loading"
     >
       <template #renderItem="{ item: picture }">
         <a-list-item style="padding: 0">
@@ -43,9 +43,9 @@
           <a-card hoverable @click="doClilckPicture(picture)">
             <template #cover>
               <img
-                  :alt="picture.name"
-                  :src="picture.url"
-                  style="height: 180px; object-fit: cover"
+                :alt="picture.name"
+                :src="picture.url"
+                style="height: 180px; object-fit: cover"
               />
             </template>
             <a-card-meta :title="picture.name">
@@ -83,7 +83,7 @@ const loading = ref(true)
 // 搜索条件
 const searchParams = reactive<API.PictureQueryRequest>({
   current: 1,
-  pageSize: 12,
+  pageSize: 15,
   sortField: 'createTime',
   sortOrder: 'descend',
 })
